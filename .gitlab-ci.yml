@@ -1,0 +1,9 @@
+salt:
+  stage: deploy
+  image: registry.gitlab.com/saltspiro/spiro-deploy:master
+  only:
+    - master
+  environment:
+    name: prod
+  script:
+    spiro-deploy lumami.biz prod --highstate
