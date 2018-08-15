@@ -36,5 +36,5 @@ with BotoRoute53.hosted_zone_present(
 
     record("lumami.biz", "TXT", [
         '"v=spf1 include:aspmx.googlemail.com ~all"',
-        # '"google-site-verification=dAJB1jq2AqjybZI9G1oko-9_D2Qf9NdLDOPQJivA5ME"',
+        '"google-site-verification=8dC00FJrgWhuXtalc0Xhl_GsdcJDQeTY7IXaYnMaVRA"',
     ])
