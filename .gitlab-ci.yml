@@ -1,9 +1,25 @@
+mkdocs:
+  stage: build
+  image: python:alpine
+  artifacts:
+    paths:
+      - site
+  before_script:
+    - pip install pipenv
+    - pipenv install
+  script:
+    - pipenv run mkdocs build
+
+
 salt:
   stage: deploy
   image: registry.gitlab.com/saltspiro/spiro-deploy:master
   only:
     - master
   environment:
-    name: prod
+    name: Live
+    url: https://lumami.biz/
+  dependencies:
+    - mkdocs
   script:
-    spiro-deploy lumami.biz prod --highstate
+    spiro-deploy lumami.biz prod --highstate --artifact=site
