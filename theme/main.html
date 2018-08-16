@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   <title>
-    {% if page.title == "Home" or not page.title %}
+    {% if page.is_homepage or not page.title %}
       {{ config.site_name }} &middot; {{ config.site_description }}
     {% else %}
       {{ page.title }} &middot; {{ config.site_name }}

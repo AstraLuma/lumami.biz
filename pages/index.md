@@ -1,17 +1,7 @@
-# Home
+Lumami Software provides expertise in Web, DevOps, and Systems. We specialize in:
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+* Python
+* Django
+* SaltStack
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+If you'd like to know more, contact us at TODO
