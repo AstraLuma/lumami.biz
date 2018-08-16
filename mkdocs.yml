@@ -1,0 +1,8 @@
+site_name: Lumami Software
+site_description: Python and Salt and Web! Oh my!
+
+docs_dir: pages
+
+theme:
+    name: null
+    custom_dir: 'theme/'

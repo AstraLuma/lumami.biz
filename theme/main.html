@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    {% if page.title == "Home" or not page.title %}
+      {{ config.site_name }} &middot; {{ config.site_description }}
+    {% else %}
+      {{ page.title }} &middot; {{ config.site_name }}
+    {% endif %}
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ base_url }}/css/poole.css">
+  <link rel="stylesheet" href="{{ base_url }}/css/syntax.css">
+  <link rel="stylesheet" href="{{ base_url }}/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ base_url }}/img/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">
+</head>
+  <body>
+
+    <div class="sidebar">
+      <div class="container sidebar-sticky">
+        <div class="sidebar-about">
+          <h1>
+            <a href="{{ config.site_url }}">
+              {{ config.site_name }}
+            </a>
+          </h1>
+          <p class="lead">{{ config.site_description }}</p>
+        </div>
+
+        <nav class="sidebar-nav">
+          {% for node in nav %}
+            {% if node.title and not node.is_homepage %}
+              <a class="sidebar-nav-item{% if node.active %} active{% endif %}" href="{{ node.canonical_url }}">{{ node.title }}</a>
+            {% endif %}
+          {% endfor %}
+        </nav>
+
+        {% if config.copyright %}
+        <p>&copy; {{ config.copyright }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="content container">
+      <div class="page">
+        {{ page.content }}
+      </div>
+    </div>
+
+  </body>
+</html>
