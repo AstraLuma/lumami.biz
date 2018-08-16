@@ -20,12 +20,32 @@ def alias(target, source):
     if ip6:
         record(target, "AAAA", ip6)
 
+def getips(glob):
+    ip4 = [
+        ip
+        for ips in salt['mine.get'](glob, 'ip.addrs4').values()
+        for ip in ips
+    ]
+    ip6 = [
+        ip
+        for ips in salt['mine.get'](glob, 'ip.addrs6').values()
+        for ip in ips
+    ]
+    return ip4, ip6
 
 with BotoRoute53.hosted_zone_present(
     "lumami.biz.",
     domain_name="lumami.biz.",
     comment="",
 ):
+    sh4, sh6 = getips('statichost-*')
+    if sh4:
+        record('lumami.biz', 'A', sh4)
+        record('www.lumami.biz', 'A', sh4)
+    if sh6:
+        record('lumami.biz', 'AAAA', sh6)
+        record('www.lumami.biz', 'AAAA', sh6)
+
     record("lumami.biz", "MX", [
         "1 ASPMX.L.GOOGLE.COM.",
         "5 ALT1.ASPMX.L.GOOGLE.COM.",
