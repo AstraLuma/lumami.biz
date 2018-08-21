@@ -11,12 +11,12 @@ def record(host, type, value):
     )
 
 
-def alias(target, source):
-    ip4 = salt.dnsutil.A(source)
+def alias(target, source, nameserver=None):
+    ip4 = salt.dnsutil.A(source, nameserver=nameserver)
     if ip4:
         record(target, "A", ip4)
 
-    ip6 = salt.dnsutil.AAAA(source)
+    ip6 = salt.dnsutil.AAAA(source, nameserver=nameserver)
     if ip6:
         record(target, "AAAA", ip6)
 
@@ -50,6 +50,7 @@ with BotoRoute53.hosted_zone_present(
         "10 in1-smtp.messagingengine.com.",
         "20 in2-smtp.messagingengine.com.",
     ])
+    alias('mail.lumami.biz', 'mail.lumami.biz', nameserver='ns1.messagingengine.com')
 
     record("fm1._domainkey.lumami.biz", "CNAME", 'fm1.lumami.biz.dkim.fmhosted.com')
     record("fm2._domainkey.lumami.biz", "CNAME", 'fm2.lumami.biz.dkim.fmhosted.com')
