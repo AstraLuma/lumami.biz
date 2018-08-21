@@ -47,15 +47,16 @@ with BotoRoute53.hosted_zone_present(
         record('www.lumami.biz', 'AAAA', sh6)
 
     record("lumami.biz", "MX", [
-        "1 ASPMX.L.GOOGLE.COM.",
-        "5 ALT1.ASPMX.L.GOOGLE.COM.",
-        "5 ALT2.ASPMX.L.GOOGLE.COM.",
-        "10 ASPMX2.GOOGLEMAIL.COM.",
-        "10 ASPMX3.GOOGLEMAIL.COM.",
+        "10 in1-smtp.messagingengine.com.",
+        "20 in2-smtp.messagingengine.com.",
     ])
 
+    record("fm1._domainkey.lumami.biz", "CNAME", 'fm1.lumami.biz.dkim.fmhosted.com')
+    record("fm2._domainkey.lumami.biz", "CNAME", 'fm2.lumami.biz.dkim.fmhosted.com')
+    record("fm3._domainkey.lumami.biz", "CNAME", 'fm3.lumami.biz.dkim.fmhosted.com')
+
     record("lumami.biz", "TXT", [
-        '"v=spf1 include:aspmx.googlemail.com ~all"',
+        '"v=spf1 include:spf.messagingengine.com include:aspmx.googlemail.com ~all"',
         '"google-site-verification=8dC00FJrgWhuXtalc0Xhl_GsdcJDQeTY7IXaYnMaVRA"',
         '"keybase-site-verification=iI3RC_tb_cftVZYd9qHPFcWepn67Rrsc050CThfiya0"',
     ])
