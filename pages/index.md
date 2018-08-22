@@ -4,4 +4,4 @@ Lumami Software provides expertise in Web, DevOps, and Systems. We specialize in
 * Django
 * SaltStack
 
-If you'd like to know more, contact us at TODO
+If you'd like to know more, contact us at [hello@lumami.biz](mailto:hello@lumami.biz)
