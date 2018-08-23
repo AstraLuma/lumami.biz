@@ -39,8 +39,6 @@ with BotoRoute53.hosted_zone_present(
     comment="",
 ):
     sh4, sh6 = getips('statichost-*')
-    Test.show_notification('sh4', text=repr(sh4))
-    Test.show_notification('sh6', text=repr(sh6))
     if sh4:
         record('lumami.biz', 'A', sh4)
         record('www.lumami.biz', 'A', sh4)
