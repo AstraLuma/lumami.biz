@@ -12,6 +12,8 @@ lumami.biz:
   acme.cert:
     - email: webmaster@lumami.biz
     - webroot: /srv/certbot
+    - watch_in:
+        - service: nginx-lumami
 
 www.lumami.biz:
   acme.cert:
