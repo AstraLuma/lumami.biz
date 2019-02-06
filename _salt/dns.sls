@@ -23,12 +23,12 @@ def alias(target, source, nameserver=None):
 def getips(glob):
     ip4 = [
         ip
-        for ips in salt.mine.get(glob, 'ip.addrs4').values()
+        for ips in salt.mine.get(glob, 'ipaddr.four').values()
         for ip in ips
     ]
     ip6 = [
         ip
-        for ips in salt.mine.get(glob, 'ip.addrs6').values()
+        for ips in salt.mine.get(glob, 'ipaddr.six').values()
         for ip in ips
     ]
     return ip4, ip6
