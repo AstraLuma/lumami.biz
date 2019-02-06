@@ -13,7 +13,7 @@ mkdocs:
 
 salt:
   stage: deploy
-  image: registry.gitlab.com/saltspiro/spiro-deploy:master
+  image: registry.gitlab.com/spirostack/spiro-deploy:master
   only:
     - master
   environment:
