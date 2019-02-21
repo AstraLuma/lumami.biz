@@ -1,5 +1,6 @@
 site_name: Lumami Software
 site_description: Python and Salt and Web! Oh my!
+site_url: https://lumami.biz/
 
 docs_dir: pages
 
