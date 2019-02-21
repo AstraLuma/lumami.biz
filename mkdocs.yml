@@ -6,3 +6,5 @@ docs_dir: pages
 theme:
     name: null
     custom_dir: 'theme/'
+
+nav: []
