@@ -61,3 +61,7 @@ with BotoRoute53.hosted_zone_present(
         '"google-site-verification=8dC00FJrgWhuXtalc0Xhl_GsdcJDQeTY7IXaYnMaVRA"',
         '"keybase-site-verification=iI3RC_tb_cftVZYd9qHPFcWepn67Rrsc050CThfiya0"',
     ])
+
+    # Stuff for clients
+    record('*.terroir.lumami.biz', 'A', '104.155.177.230')
+
