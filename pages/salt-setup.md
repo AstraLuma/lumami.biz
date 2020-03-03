@@ -174,6 +174,34 @@ The parts below are required for SpiroFS, but additions may be made to taste.
           - spiro
 ```
 
+### Updating
+
+One last thing: In order for Let's Encrypt to function, a bunch of the above states must be re-evaluated on a schedule. This can be handled with a few different strategies.
+
+A very common practice is to just run `state.highstate` on everything on a regular basis. We have heard rumor that this can be as often as every 15 minutes, but we generally set it to a few times a day:
+
+```yaml
+highstate:
+  schedule.present:
+    - function: state.highstate
+    - hours: 12
+    - splay: 7200
+```
+
+If you prefer something more specific, something like this might be more to your liking:
+
+```yaml
+cert-renew:
+  schedule.present:
+    - function: state.apply
+    - job_args:
+      - master
+    - hours: 12
+    - splay: 300
+```
+
+The splay above is something that helps when lot of systems are doing this. It allows the specific time to drift, preventing lockstep, aliasing-like, or load spike problems from occurring. It is not required, but it can prevent odd operational issues.
+
 ## What Next
 
 With all of the configuration above applied and functioning, your master should be all configured and ready for use.
