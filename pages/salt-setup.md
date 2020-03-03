@@ -136,6 +136,10 @@ salt-api:
               ssl_key: /etc/letsencrypt/live/salt.your.domain.example/privkey.pem
 ```
 
+This will change considerably if you decide to make use of reverse proxies or other HTTP middleware. The important thing for SpiroFS is that these a configured to stream requests and responses, not attempt to buffer them.
+
+And remember, this is transporting configuration for your entire infrastructure. Please use TLS.
+
 ### Permissions
 
 In order to use salt-api, some authentication needs to be set up. The example below uses pam (system logins) and the system group `salt` to authenticate and authorize users, but you are endouraged to use what works well for you.
