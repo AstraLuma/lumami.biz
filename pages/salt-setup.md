@@ -1,6 +1,6 @@
 # The Lumami Way of Setting Up Salt
 
-SaltStack is fairly vague about good practices in setting up a Salt Master, and naturally has very few opinions about good usage of third-party software. Given the number of pieces need for a good setup, we thought we would share our opinions about how to accomplish this.
+SaltStack is fairly vague about good practices in setting up a Salt Master, and naturally has very few opinions about good usage of third-party software. Given the number of pieces needed for a good setup, we thought we would share our opinions about how to accomplish this.
 
 This guide will outline how we think you should set up a Salt Master. The resulting setup will encourage security best practices (such as not using `sudo` regularly on the most important server in your company) while trying to make best practices easy.
 
@@ -8,13 +8,13 @@ A reminder that your Salt Master is the keys to your kingdom: it has complete ac
 
 ## Things you will need
 
-* A server: This will be your Salt Master. It doesn't need to be remarkably powerful, but we have have found that terribly weak computers (such as a Raspberry Pi 3) do not run Salt well, and it is strongly encouraged this is a dedicated physical server preferably at a location you completely control.
+* A server: This will be your Salt Master. It doesn't need to be remarkably powerful, but we have have found that terribly weak computers (such as a Raspberry Pi 3) do not run Salt well, and it is strongly encouraged that this is a dedicated physical server preferably at a location you completely control.
 * A git host with CI: This is where you will host your Base Repo as well as SpiroFS-deployed repos
 * Networking: The chosen server needs to be able to receive connections from:
-  * The git CI system
-  * All of the minions
-  * Admins using Salt
-  * Let's Encrypt
+   * The git CI system
+   * All of the minions
+   * Admins using Salt
+   * Let's Encrypt
 
 Some proxying and network juggling can be done (SpiroFS and salt-api via HTTP-based tools, salt via the use of syndics), but careful thought should be employed when desinging such a system.
 
@@ -41,6 +41,7 @@ file_roots:
 ```
 
 This should apply any state you created to the master. That should include:
+
 * Setting up salt-master itself
 * Setting up salt-api
 * Configuring ACLs
