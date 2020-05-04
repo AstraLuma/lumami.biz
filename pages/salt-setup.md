@@ -11,10 +11,10 @@ A reminder that your Salt Master is the keys to your kingdom: it has complete ac
 * A server: This will be your Salt Master. It doesn't need to be remarkably powerful, but we have have found that terribly weak computers (such as a Raspberry Pi 3) do not run Salt well, and it is strongly encouraged that this is a dedicated physical server preferably at a location you completely control.
 * A git host with CI: This is where you will host your Base Repo as well as SpiroFS-deployed repos
 * Networking: The chosen server needs to be able to receive connections from:
-   * The git CI system
-   * All of the minions
-   * Admins using Salt
-   * Let's Encrypt
+    - The git CI system via SpiroFS
+    - All of the minions
+    - Admins via salt-api
+    - Let's Encrypt
 
 Some proxying and network juggling can be done (SpiroFS and salt-api via HTTP-based tools, salt via the use of syndics), but careful thought should be employed when desinging such a system.
 
@@ -137,7 +137,7 @@ salt-api:
               ssl_key: /etc/letsencrypt/live/salt.your.domain.example/privkey.pem
 ```
 
-This will change considerably if you decide to make use of reverse proxies or other HTTP middleware. The important thing for SpiroFS is that these a configured to stream requests and responses, not attempt to buffer them.
+This will change considerably if you decide to make use of reverse proxies or other HTTP middleware. The important thing is that these are configured to stream requests and responses, not to buffer them.
 
 And remember, this is transporting configuration for your entire infrastructure. Please use TLS.
 
@@ -179,7 +179,7 @@ The parts below are required for SpiroFS, but additions may be made to taste.
 
 One last thing: In order for Let's Encrypt to function, a bunch of the above states must be re-evaluated on a schedule. This can be handled with a few different strategies.
 
-A very common practice is to just run `state.highstate` on everything on a regular basis. We have heard rumor that this can be as often as every 15 minutes, but we generally set it to a few times a day:
+A very common practice is to just run `state.highstate` on everything on a regular basis. We have heard rumor that this is done as often as every 15 minutes, but we generally set it to a few times a day:
 
 ```yaml
 highstate:
