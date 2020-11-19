@@ -11,10 +11,10 @@ A reminder that your Salt Master is the keys to your kingdom: it has complete ac
 * A server: This will be your Salt Master. It doesn't need to be remarkably powerful, but we have have found that terribly weak computers (such as a Raspberry Pi 3) do not run Salt well, and it is strongly encouraged that this is a dedicated physical server preferably at a location you completely control.
 * A git host with CI: This is where you will host your Base Repo as well as SpiroFS-deployed repos
 * Networking: The chosen server needs to be able to receive connections from:
-    - The git CI system via SpiroFS
-    - All of the minions
-    - Admins via salt-api
-    - Let's Encrypt
+  - The git CI system via SpiroFS
+  - All of the minions
+  - Admins via salt-api
+  - Let's Encrypt
 
 Some proxying and network juggling can be done (SpiroFS and salt-api via HTTP-based tools, salt via the use of syndics), but careful thought should be employed when desinging such a system.
 
@@ -54,7 +54,7 @@ It is suggested you keep the master's salt states in git.
 
 One of the things we do is to have salt "take over" much of the configuration we set out above.
 
-When copying the code below to SLS files, be sure to watch dependencies.
+When copying the code below to the SLS file, be sure to watch dependencies.
 
 ### Basic installation
 This is where we manage core packages and such.
