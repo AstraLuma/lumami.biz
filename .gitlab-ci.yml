@@ -1,6 +1,6 @@
 mkdocs:
   stage: build
-  image: python:3.6-alpine
+  image: python:3.9-alpine
   artifacts:
     paths:
       - site
