@@ -16,10 +16,12 @@ caddy-lumami:
       - file: /srv/lumami.biz
     - contents: |
         lumami.biz {
+          import logging
           root * /srv/lumami.biz
           file_server
         }
 
         www.lumami.biz {
+          import logging
           redir https://lumami.biz{uri} 301
         }
