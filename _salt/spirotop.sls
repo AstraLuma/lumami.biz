@@ -3,4 +3,4 @@ prod:
     - dns
 
   statichost-*:
-    - nginx
+    - caddy
