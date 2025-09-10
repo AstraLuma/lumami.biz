@@ -49,8 +49,3 @@ jobs:
         with:
           domain: lumami.biz
           root: ./site
-      - name: Upload (WWW)
-        uses: teahouse-hosting/upload@trunk
-        with:
-          domain: www.lumami.biz
-          root: ./site
