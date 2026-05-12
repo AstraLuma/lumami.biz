@@ -49,4 +49,4 @@ jobs:
         uses: teahouse-hosting/swiss-army-upload@trunk
         with:
           src: ./site
-          dest: src://lumami.biz
+          dest: tea://lumami.biz
