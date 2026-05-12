@@ -45,7 +45,7 @@ jobs:
           name: website
           path: ./site
       - name: Upload
-        uses: teahouse-hosting/upload@trunk
+        uses: teahouse-hosting/swiss-army-upload@trunk
         with:
-          domain: lumami.biz
-          root: ./site
+          src: ./site
+          dest: src://lumami.biz
